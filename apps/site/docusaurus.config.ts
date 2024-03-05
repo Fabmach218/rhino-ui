@@ -7,6 +7,8 @@ const config: Config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
+  plugins: ['docusaurus-plugin-sass'],
+
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -48,7 +50,13 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/custom.css',
+            '../../packages/components/src/components/box/box.module.scss',
+            '../../packages/components/src/components/details/details.module.scss',
+            '../../packages/components/src/components/heading/heading.module.scss',
+            '../../packages/components/src/components/button/button.module.scss',            
+          ],
         },
       } satisfies Preset.Options,
     ],

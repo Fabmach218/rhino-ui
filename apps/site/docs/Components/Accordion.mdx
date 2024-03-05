@@ -1,0 +1,33 @@
+import Default from './Accordion/Default';
+import LeftCaret from './Accordion/LeftCaret';
+import NoCaret from './Accordion/NoCaret';
+
+# Accordion
+
+The accordion component delivers a large amount of information in a small amount of space through progress disclosure. It is ideally used to shorten pages or reduce scrolling when it is not critical that content be fully read.
+
+Accordions are useful when you want to toggle between hiding and showing additional content for related information, such as a Glossary or FAQ.
+
+<Default />
+
+## Props
+
+## Caret Options
+
+By default the caret is on the right. You can render the caret on the left side so the accordion has a folder structure like appearance using the `hasCaret` prop on the `Accordion.PanelSummary` component.
+
+<LeftCaret />
+
+### No Caret
+
+You can also choose to hide the caret altogether. Moreover, the accordion is a very transparent custom implementation of the `<Details>` component so if more custom behavior is required, you can build your own custom accordions `<Details>` details as well.
+
+<NoCaret />
+
+## Sub-Components
+
+### `<Accordion.Panel>`
+
+### `<Accordion.PanelSummary>`
+
+### `<Accordion.PanelDetails>`
