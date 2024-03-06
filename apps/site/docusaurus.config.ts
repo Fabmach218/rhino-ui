@@ -3,6 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
+  themes: ['@docusaurus/theme-live-codeblock'],
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
@@ -63,6 +64,9 @@ const config: Config = {
   ],
 
   themeConfig: {
+    /*algolia: {
+      contextualSearch: true,
+    },*/
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -134,6 +138,9 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    liveCodeBlock: {
+      playgroundPosition: 'bottom',
     },
   } satisfies Preset.ThemeConfig,
 };
