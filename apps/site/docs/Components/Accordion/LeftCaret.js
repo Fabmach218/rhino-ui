@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Accordion } from '../../../../../packages/components/src/components/accordion/accordion';
+import { Accordion } from '@rhino-ui/components/src/components/accordion/accordion';
 
 export default function LeftCaret() {
     const [openPanels, setOpenPanels] = useState({
