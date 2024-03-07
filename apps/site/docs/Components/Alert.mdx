@@ -1,0 +1,119 @@
+import { Alert } from '@rhino-ui/components/src/components/alert/alert';
+import Variants from './Alert/Variants';
+import CustomJsx from './Alert/CustomJsx';
+import RenderFunction from './Alert/RenderFunction';
+import Closable from './Alert/Closable';
+import DesignTokens from './Alert/DesignTokens';
+
+# Alert
+
+Use alerts to display feedback for users about specific actions, or states of an application.
+
+<Alert
+    title="Contact Created"
+    message="The contact was saved on December 3, 2020 at 6:10pm PDT"
+    variant="success"
+    isClosable
+    hasIcon
+/>
+
+## Props
+
+
+## Variants
+
+Alerts come in different variants based on the kind of feedback being delivered to the user. Additionally, a combination of icon, title, and message can be used depending on your content needs.
+
+<Variants />
+
+## With Custom JSX in the message
+
+The alert can display any custom JSX that is passed into the `message` prop, not just a string variant.
+
+<CustomJsx />
+
+## With Render Function
+
+If you prefer to pass a render function to the alert rather than a static `ReactNode`, you can pass a function
+that returns a `ReactNode` to the `render` prop.
+
+IMPORTANT: The `render` prop, will supersede the `message` prop, if both are present.
+
+<RenderFunction />
+
+## Closable
+
+The alert can be made closable by passing the `isClosable` prop. Note that this only controls the presence of
+the close icon, but closing actually happens programmatically with a callback passed to the `onClose` prop.
+If you need custom close text, pass it in the `closeText` prop.
+
+<Closable />
+
+## Compact
+
+Renders a version of the banner with less padding.
+
+<Alert
+    message="Compact Alerts have less padding"
+    variant="info"
+    isCompact
+/>
+
+## Custom Theme
+
+The Alert component can be themed by base tokens, or component specific tokens.
+
+<>
+    <div
+    style={{
+        '--color-brand-info-50': '#CFC5E9',
+        '--color-brand-info-500': '#603FB5',
+        '--alert-border-width': '0',
+    }}
+    >
+    <Alert
+        message="Here we've overwritten base token values so that the alert inherits new values."
+        title="Custom Theme"
+        variant="info"
+        hasIcon
+        className="m-bottom-md"
+    />
+    </div>
+    <div
+    style={{
+        '--alert-info-font-color': '#603FB5',
+        '--alert-info-background-color': 'white',
+        '--alert-info-icon-color': '#603FB5',
+        '--alert-border-width': 'var(--size-border-xs)',
+        '--alert-info-border-color': 'var(--alert-info-icon-color)',
+    }}
+    >
+    <Alert
+        message="Here we've overwritten ONLY the values for the 'info' alert variant so other components will be unaffected"
+        title="Custom Theme"
+        variant="info"
+        hasIcon
+        className="m-bottom-md"
+    />
+    <Alert
+        message="An alert that uses default token values"
+        variant="warning"
+        title="Not Themed"
+        hasIcon
+    />
+    </div>
+</>
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>

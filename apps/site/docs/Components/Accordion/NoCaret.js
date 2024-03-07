@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Accordion } from '@rhino-ui/components';
+import { Accordion } from '@rhino-ui/components/src/components/accordion/accordion';
 
 export default function NoCaret() {
     const [openPanels, setOpenPanels] = useState({
