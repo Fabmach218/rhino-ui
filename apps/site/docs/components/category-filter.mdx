@@ -1,0 +1,49 @@
+import Default from './category-filter/default';
+import Sizes from './category-filter/sizes';
+import Disabled from './category-filter/disabled';
+import DesignTokens from './category-filter/design-tokens';
+
+# CategoryFilter
+
+The CategoryFilter component consists of a button with text, typically used in a design to display high level categories on page.
+
+## Usage Guidelines
+
+- Should appear in a group of a related choices
+- Can be used to denote for single (e.g. t-shirt sizes) or multiple choice (e.g. blog categories) scenarios
+
+## Content Guidelines
+
+- A single word is preferred when categorizing content. For example, "Solar" or "Storage"
+- Limit the number of words within a badge to two. For example, "Company News" or "Smart Home"
+
+<Default />
+
+## Props
+
+
+## Sizes
+
+The CategoryFilter can be sized with one of `xs`, `sm`, `md`, `lg`, or a `ResponsiveProp` object with any of those values.
+
+<Sizes />
+
+## Disabled
+
+Use the disabled prop to indicate the button is not clickable in its currenty state.
+
+<Disabled />
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
