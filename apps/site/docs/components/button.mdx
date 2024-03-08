@@ -1,0 +1,123 @@
+import { Button } from "@rhino-ui/components/src/components/button/button";
+import Variants from './button/variants';
+import Outlined from './button/outlined';
+import Sizes from './button/sizes';
+import Naked from './button/naked';
+import FullWidth from './button/full-width';
+import Icons from './button/icons';
+import ReactRouterLink from './button/react-router-link';
+import CustomTheme from './button/custom-theme';
+import DesignTokens from './button/design-tokens';
+
+# Button
+
+Buttons are used as triggers for actions.
+They are used in forms, toolbars, modal dialogs and as stand-alone action triggers.
+Actions almost always occur on the same page.
+
+<Button onClick={() => alert('clicked')}>Button</Button>
+
+## Props
+
+## Color Variants
+
+The `variant` prop determines which color variant to render.
+
+<Variants />
+
+## Outlined
+
+Use `isOutlined` to render an outline button. This is helpful for adding a secondary CTA in an application which matches
+the color of the primary CTA but makes the hierarchy clear. The background is transparent in the default state.
+
+<Outlined />
+
+## Sizes
+
+Set the size of the button to `xs`, `sm`, `md` or `lg`. `md` is the default size. The button also takes a `ResponsiveProp` object
+so it can have different sizes at different breakpoints.
+
+<Sizes />
+
+## Naked
+
+When you need a button with no styles but want to use utility classes.
+
+<Naked />
+
+## Full Width
+
+Use the `fullWidth` prop to allow the button to grow to its container's full width.
+
+<FullWidth />
+
+## Icons
+
+Add an icon to the left or right inside the Button using the `iconPrefix` and `iconSuffix` props respectively.
+
+<Icons />
+
+## Icon Only Button
+
+Use a combination of `isNaked` and an named icon to make an icon a button. Be sure to include an `aria-label` for screen readers to know what action the button will perform when pressed.
+
+<Button iconPrefix="remove" isNaked aria-label="remove" />
+
+## Loading
+
+Setting the `isLoading` prop to true will replace the button text with loading indicator and disable the button to prevent unintended submissions.
+The width of the button will remain consistent to prevent content from shifting.
+
+<Button isLoading>Sign In</Button>
+
+## Disabled
+
+Use for actions that aren’t currently available, such as immediately after a form submission.
+The interface should make it clear why the button is disabled and what needs to be done to enable it.
+
+<Button isDisabled>Disabled Button</Button>
+
+## Event Callbacks
+
+Callback functions can be passed to `onClick`, `onBlur`, and `onFocus` events.
+
+<Button
+  onBlur={() => console.log('blur')}
+  onClick={() => console.log('click')}
+  onFocus={() => console.log('focus')}
+>
+  click, focus, blur events
+</Button>
+
+## As an Anchor
+
+You can render an anchor tag with the style of a button by using the `as` prop. You
+can render buttons as one of `button`, `a`, and `input`.
+
+<Button as="a" href="https://ux.rhinolabs.agency" target="_blank">
+  I'm an anchor tag
+</Button>
+
+## Wrapped in a React Router Link
+
+<ReactRouterLink />
+
+## Custom Theme
+
+The Button component can be themed by base tokens, or component specific tokens. This example shows how we style our `Button` with our brand font and squared corners for use on our public marketing site.
+
+<CustomTheme />
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
