@@ -1,0 +1,45 @@
+import { Duration } from '@rhino-ui/components/src/components/duration/duration';
+import { Box } from '@rhino-ui/components/src/components/box/box';
+import SwitchingUnits from './duration/switching-units';
+import Rounding from './duration/rounding';
+import InsideBadge from './duration/inside-badge';
+import Hover from './duration/hover';
+
+# Duration
+
+Use 'Duration' to display a time span in a friendly human readable format. The `Duration` component handles converting 
+between different time units at defined intervals, including rounding, and displaying the result with an appropriate label.
+
+<Box gap="xs">
+    <Duration milliseconds={1000} />
+    <Duration milliseconds={60000} />
+    <Duration milliseconds={7200000} />
+    <Duration milliseconds={86400000} />
+</Box>
+
+
+## Props
+
+
+## Switching Units
+
+The intervals at which the `Duration` component switches between time units can be configured using the 
+`displayMinutes`, `displayHours`, and `displayDays` properties.
+
+<SwitchingUnits />
+
+## Rounding
+
+By default the `Duration` component will round up the time span to the nearest whole unit. This can be configured using the
+`roundUp` property.
+
+<Rounding />
+
+
+## With Other Components
+
+Use the `Duration` component with other stylized components to display a time span in a friendly human readable format.
+
+<InsideBadge />
+
+<Hover />
