@@ -1,0 +1,36 @@
+import BasicUsage from './details/basic-usage';
+import CustomSummary from './details/custom-summary';
+import StartOpened from './details/start-opened';
+
+# Details
+
+The `<details>` tag specifies additional details that the user can open and close on demand. This custom component
+provides a React implementation of this semantic HTML with controlled state.
+
+It includes a child component for the details summary `<Details.Summary />`. The details themselves can be included as children
+inside `<Details>` typically following the `<Details.Summary>`.
+
+NOTE: for a custom implementation of this component see the [accordion](/?path=/story/components-accordion-overview--default-story)
+
+<BasicUsage />
+
+## Props
+
+
+## Custom `<summary>` Appearance.
+
+Add any custom JSX to the `<Details.Summary>` element to customize your summary trigger.
+
+<CustomSummary />
+
+## Start Opened
+
+Render the component with the details expanded by setting `isOpen` to `true`.
+
+<StartOpened />
+
+## Sub-Components
+
+### `<Details.Summary>`
+
+## Props
