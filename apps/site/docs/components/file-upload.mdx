@@ -1,0 +1,136 @@
+import { FileUpload } from '@rhino-ui/components/src/components/file-upload/file-upload';
+import Default from './file-upload/default';
+import ButtonText from './file-upload/button-text';
+import HelpText from './file-upload/help-text';
+import CustomIcon from './file-upload/custom-icon';
+import WithoutIcon from './file-upload/without-icon';
+import WithoutButtonText from './file-upload/without-button-text';
+import Variants from './file-upload/variants';
+import Outlined from './file-upload/outlined';
+import Sizes from './file-upload/sizes';
+import ClearingFiles from './file-upload/clearing-files';
+import MultipleFiles from './file-upload/multiple-files';
+import FileTypes from './file-upload/file-types';
+import TruncatedFileName from './file-upload/truncated-file-name';
+import FullWidth from './file-upload/full-width';
+import Disabled from './file-upload/disabled';
+import Required from './file-upload/required';
+import CustomRequiredIndicator from './file-upload/custom-required-indicator';
+
+# FileUpload
+
+Use FileUpload to capture files for upload in forms or elsewhere.
+
+<FileUpload labelText="My File" id="demoFileUpload" />
+
+## Props
+
+
+## Default
+
+<Default />
+
+## Custom Button Text
+
+Customize the button text with `buttonText`.
+
+<ButtonText />
+
+## Help Text
+
+Use the `helpText` prop to add clarifying text adjacent to the file upload button.
+
+<HelpText />
+
+## Custom Icon
+
+Customize the icon to communicate the button's intended use using `iconName`. For example, using a mobile device, pressing the button will launch the device's built in camera.
+
+<CustomIcon />
+
+## Without Icon
+
+Remove the icon on the button with the handy `hasIcon` boolean.
+
+<WithoutIcon />
+
+## Without Button Text
+
+The default button text for `FileUpload` is 'Upload File'. However, you can explicitely pass `null` to the `buttonText` prop to remove all text.
+
+<WithoutButtonText />
+
+## Variants
+
+Light, dark, primary and white variations are available.
+
+<Variants />
+
+## Outlined
+
+Use `isOutlined` to render an outline button.
+
+<Outlined />
+
+## Sizes
+
+Set the size of the FileUpload button to `xs`, `sm`, `md` or `lg`. `md` is the default size.
+
+<Sizes />
+
+## Clearing Files
+
+Pass a callback function `onClearFiles` to handle the click event for clearing all files from the input.
+NOTE: since this is a controlled input, the callback itself will not clear any files, it is expected that
+they are cleared at the top level where the `files` prop is emptied.
+
+<ClearingFiles />
+
+## Multiple Files
+
+Pass the `multiple` prop to let users select multiple files to upload.
+NOTE: just like a native file input, users will be expected to select multiple files in their finder/explorer
+window in one go, if they simply click the button numerous times, the file input will be overwritten every time.
+
+<MultipleFiles />
+
+## Specify File Types
+
+Specify the type of files accepted in the input with the `accept` prop. This is a direct passthrough to the
+input's accept prop so it follows its standard behavor.
+[Read More](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)
+The example below only accepts image files.
+
+<FileTypes />
+
+## Truncate File Name
+
+It is helpful in some UIs to shorten the display of long file names, however, it is
+also good to let the user know what file they are uploading by leaving the file extension intact.
+To accomplish this we simply truncate excess characters in the middle of the file name, based on the
+`fileNameMaxLength` prop. Try it with a long file name, the one below is capped at 16 characters.
+
+<TruncatedFileName />
+
+## FullWidth
+
+Pass the `fullWidth` prop to have your FileUpload button take up the entire width of its container.
+
+<FullWidth />
+
+## Disabled
+
+Pass the `isDisabled` prop to render a disabled FileUpload.
+
+<Disabled />
+
+## Required
+
+Pass the `isRequired` prop to make the `input` required. Combine with the `error` prop to
+display a proper error when necessary.
+
+<Required />
+
+You can remove or customize the required indicator using the `requiredIndicator` prop.
+
+<CustomRequiredIndicator />
