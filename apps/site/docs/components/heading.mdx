@@ -1,0 +1,53 @@
+import { Heading } from "@rhino-ui/components/src/components/heading/heading";
+import Levels from './heading/levels';
+import Sizes from './heading/sizes';
+import ResponsiveSizes from './heading/responsive-sizes';
+import Colors from './heading/colors';
+import DesignTokens from './heading/design-tokens';
+
+# Heading
+
+Use `Headings` as labels for pages or sections of a page that make up an interface. `Headings` can label an entire page, or sections of related content.
+The `Heading` component allows you to specify an appropriate semantic element (h1-h6) and independently set its size so that it is appropriate for the surrounding content.
+If no size is specified, a default size will be applied.
+
+<Heading as="h1">Lead the world towards a clean energy future</Heading>
+
+## Props
+
+
+## All Levels
+
+Each Heading level has a default size.
+
+<Levels />
+
+## Sizes
+
+The default size of the Heading can overridden as xs-5xl so that it's appropriate for its surrounding context.
+
+<Sizes />
+
+The `size` prop accepts an object where the properties correspond to [breakpoint tokens](?path=/story/design-tokens-design-tokens--page#breakpoints).
+
+<ResponsiveSizes />
+
+## Colors
+
+The variant of the heading is inherited from its parent, but can be set to brand variant as well.
+
+<Colors />
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
