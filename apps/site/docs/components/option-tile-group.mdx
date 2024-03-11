@@ -1,0 +1,85 @@
+import Default from './option-tile-group/default';
+import MultiSelect from './option-tile-group/multi-select';
+import HiddenInput from './option-tile-group/hidden-input';
+import Direction from './option-tile-group/direction';
+import TitleAndDescription from './option-tile-group/title-and-description';
+import Required from './option-tile-group/required';
+import DisabledOptions from './option-tile-group/disabled-options';
+import Error from './option-tile-group/error';
+import SingleError from './option-tile-group/single-error';
+import FullWidth from './option-tile-group/full-width';
+import CustomContent from './option-tile-group/custom-content';
+
+# OptionTileGroup
+
+Use a OptionTileGroup when a user is required to select one of five or fewer options. It is ideal for this scenario because the options are displayed without having to interact.
+If there are more than five options, use the [SelectInput](?path=/docs/components-selectinput-overview--default-story) instead.
+
+<Default />
+
+## Props
+
+
+## MultiSelect
+
+When a user needs to select more than one element, the underlying inputs will be checkboxes. With the `value` option
+now being an array of values.
+
+<MultiSelect />
+
+## Hidden Input
+
+You can render tiles without a radio/checkbox. Note that the input elements are still underlying the component, but this will limit the visual indication
+to the selected states on the tile itself. This is likely best when paired with custom content on the tile.
+
+<HiddenInput />
+
+## Direction
+
+Set the direction (flex) of the tiles. It can be one of `row` or `column` but will also take a `ResponsiveProp` object with either of these values. (see example).
+
+<Direction />
+
+## Title and Description
+
+Acting as the fieldset legend.
+
+<TitleAndDescription />
+
+## Required
+
+Sets the required and aria-required attributes on the options in the group. To avoid confusion as to whether a radio button group is required or not, authors are encouraged to specify the attribute on all the radio buttons in a group. We recommend to avoid having radio button groups that do not have any initially checked controls in the first place, because this is a state that the user cannot return to.
+
+<Required />
+
+## Disabling Options
+
+A `disabled` attribute can be passed inside the `Option` object to disable any particular option.
+
+<DisabledOptions />
+
+## Error
+
+Pass an error (or boolean with no message) to notify a user when something isn't right. Likely paired with `isRequired` in most cases.
+
+<Error />
+
+Pass an `error` to an individual option to indicate that something about that specific option is invalid.
+
+<SingleError />
+
+## Full Width (or lack thereof)
+
+The OptionsTile component has fullWidth (100%) enabled by default but it can be disabled if need be.
+
+<FullWidth />
+
+## Custom Content
+
+The tiles can render custom content with a `render` function passed in the option object.
+
+<CustomContent />
+
+## Component Design Tokens
+
+This component shares component design tokens with all form controls. For a complete list of tokens, see the [Theming Form Controls documentation](/docs/theming-form-controls--custom-theme-form).
