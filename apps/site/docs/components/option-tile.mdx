@@ -1,0 +1,66 @@
+import Default from './option-tile/default';
+import InputTypes from './option-tile/input-types';
+import Hover from './option-tile/hover';
+import Grid from './option-tile/grid';
+import DesignTokens from './option-tile/design-tokens';
+
+# OptionTile
+
+**Make a Radio or Checkbox look like anything!**
+
+An OptionTile is an alternative to certain radio, checkbox, or select UIs, where a user is
+presented with a more stylized version of these in the form of
+a tile, or group of tiles. The OptionTile contains an accessibly hidden input element,
+that will either be a `checkbox` or a `radio` input. For a
+slightly more opinionated, and fully functional fieldset using the `OptionTile` see
+[OptionTileGroup](?path=/docs/components-optiontilegroup-overview--default-story).
+
+<Default />
+
+## Props
+
+
+## Input Types
+
+The tile can be rendered as a radio (for single select) or a checkbox (for multi-select).
+The default is a radio.
+
+<InputTypes />
+
+# More Styling Options
+
+Some basic styles are included by default, which can all be overwritten via props. The component uses a `Box` as a root element,
+and as such `BoxProps` can be used to style it.
+
+NOTE: We do include a selected, disabled, and error states that are hardcoded but they ONLY
+affect the radio/checkbox icons. These elements have an opinionated style using `primary` brand color.
+If this creates a mismatch with your preferred styling, you can choose to hide them with the `hideInput`
+prop, and if necessary recreate them any way you wish via `children`.
+Also note that these icons are only there for visual feedback, as the true inputs are accessibly hidden.
+
+## Adding a hover effect
+
+<Hover />
+
+## Custom Tile Example
+
+<Grid />
+
+## Component Design Tokens
+
+This component shares component design tokens with all form controls. For a complete list of tokens, see the [Theming Form Controls documentation](/docs/theming-form-controls--custom-theme-form).
+
+If you require theming for this component separately of other form controls, it also includes the following component specific tokens:
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>global form control token</th>
+      <th>default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
