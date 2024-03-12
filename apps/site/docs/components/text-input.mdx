@@ -1,0 +1,125 @@
+import { TextInput } from '@rhino-ui/components/src/components/text-input/text-input';
+import Default from './text-input/default';
+import Required from './text-input/required';
+import CustomRequiredIndicator from './text-input/custom-required-indicator';
+import HelpText from './text-input/help-text';
+import Placeholder from './text-input/placeholder';
+import Autofocus from './text-input/autofocus';
+import HiddenLabel from './text-input/hidden-label';
+import PreffixAndSuffix from './text-input/preffix-and-suffix';
+import Disabled from './text-input/disabled';
+import Clearable from './text-input/clearable';
+import Sizes from './text-input/sizes';
+import PhoneMask from './text-input/phone-mask';
+import CreditCardMask from './text-input/credit-card-mask';
+import DateMask from './text-input/date-mask';
+import MaxLength from './text-input/max-length';
+import ValidationError from './text-input/validation-error';
+
+# TextInput
+
+Use TextInput to render a single-line text input. Masks can also be applied to custom format the input; currently supported masks include Credit Card and Phone.
+
+<TextInput id="demo" label="TextInput Label" />
+
+## Props
+
+
+## Examples
+
+All that is required to render a basic version of the TextInput is a unique `id`, `label`, `value`, and an onchange event handler passed to the `onChange` prop.
+
+<Default />
+
+## Required
+
+Use the `isRequired` prop to set the `required` and `aria-required` on the underlying input element.
+
+<Required />
+
+You can remove or customize the required indicator using the `requiredIndicator` prop.
+
+<CustomRequiredIndicator />
+
+## With Help Text
+
+Use the `helpText` prop to add clarifying text beneath the input label.
+
+<HelpText />
+
+## Placeholder
+
+Use the `placeholder` prop to add a custom placeholder.
+
+<Placeholder />
+
+## Autofocus
+
+Use the `autoFocus` prop to autofocus the input.
+
+<Autofocus />
+
+## Hidden Label
+
+Use the `hideLabel` prop to not render the label.
+
+<HiddenLabel />
+
+## Prefix and Suffix
+
+All that is required to render a basic version of the TextInput is a unique `id`, `label`, `value`, and an onchange event handler passed to the `onChange` prop.
+
+<PreffixAndSuffix />
+
+## Disabled
+
+Use the `isDisabled` prop to mark the input as disabled.
+
+<Disabled />
+
+## Clearable
+
+Use the `onClear` prop to display a clear icon (x) when the input has a value. `onClear` will fire
+a callback function when the clear icon is clicked, which can then be handled to clear the value.
+
+<Clearable />
+
+## Sizes
+
+Set the `size` of the input to `sm`, `md` or `lg`. The `size` prop is also a `ResponsiveProp`, so it can be sized differently at each [breakpoint](?path=/docs/design-tokens-design-tokens--page#breakpoints) by passing an object.
+
+<Sizes />
+
+## With Phone Mask
+
+Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to set the mask as "phone".
+
+<PhoneMask />
+
+## With Credit Card Mask
+
+Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to set the mask as "creditCard".
+
+<CreditCardMask />
+
+## With Date Mask
+
+Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to set the mask as "date".
+
+<DateMask />
+
+## Max Length
+
+Use the `maxLength` prop to limit the number of characters that can be entered into an input.
+
+<MaxLength />
+
+## Validation Error
+
+Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, `string`, or `node`.
+
+<ValidationError />
+
+## Component Design Tokens
+
+This component shares component design tokens with all form controls. For a complete list of tokens, see the [Theming Form Controls documentation](/docs/theming-form-controls--custom-theme-form).
