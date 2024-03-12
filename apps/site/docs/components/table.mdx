@@ -1,0 +1,265 @@
+import Column from './table/column';
+import Default from './table/default';
+import Loading from './table/loading';
+import Sortable from './table/sortable';
+import SortableWithDefaultSortedColumn from './table/sortable-with-default-sorted-column';
+import SortableAndLoading from './table/sortable-and-loading';
+import Scrollable from './table/scrollable';
+import ScrollableWithStickyHeader from './table/scrollable-with-sticky-header';
+import ScrollableFirstColumnLeft from './table/scrollable-first-column-left';
+import ScrollableStickyHeaderNthColumnStuckLeft from './table/scrollable-sticky-header-nth-column-stuck-left';
+import ScrollableLastColumnStuckRight from './table/scrollable-last-column-stuck-right';
+import ScrollableStickyHeaderFirstColumnStuckLeft from './table/scrollable-sticky-header-first-column-stuck-left';
+import ScrollableAndLoading from './table/scrollable-and-loading';
+import FixedWidthColumns from './table/fixed-width-columns';
+import FixedTableLayout from './table/fixed-table-layout';
+import TruncateOverflow from './table/truncate-overflow';
+import CustomActions from './table/custom-actions';
+import EmptyCellPlaceholder from './table/empty-cell-placeholder';
+import Borderless from './table/borderless';
+import Compact from './table/compact';
+import Striped from './table/striped';
+import Hoverable from './table/hoverable';
+import StripedAndHoverable from './table/striped-and-hoverable';
+import AligningCellText from './table/aligning-cell-text';
+import GlobalAlign from './table/global-align';
+import ComponentAsHeaderOrCell from './table/component-as-header-or-cell';
+import ThemedTable from './table/themed-table';
+import CustomCellClasses from './table/custom-cell-classes';
+import DesignTokens from './table/design-tokens';
+
+# Table
+
+Use tables to render datasets.
+
+Tables display information in a way that’s easy to scan, while making it easy to interact with individual records in a data set.
+
+Lastly use tables when you need the ability to sort, filter and/or paginate data.
+
+## Props
+
+
+## Column
+
+The column object allows you to configure each table column header as well as some aspects about its underlying cells.
+You will pass an array of columns to your table, where each column is an object with the following properties.
+NOTE: all properties in a column object are optional, but we highly recommend including a `heading` in every column.
+
+<Column />
+
+## Common Example
+
+An example showcasing the props required to render a list of customers in a table. `rows` and `columns`.
+
+<Default />
+
+## Loading
+
+Use the `isLoading` prop on the `<Table />` component to display an overlay that prevents user interaction. Useful for when
+table data is being fetched or refreshed.
+
+<Loading />
+
+## Sortable
+
+Make table columns sortable by passing the `isSortable` prop as part of the `Column` that you'd like to sort.
+Sorting is completely controlled outside of our library. The table will fire an `onSort` callback when a column is sorted,
+which bubbles up the click or keyboard event, along with a `sortedKey` value. The `sortedKey` refers to the `dataKey` of the column
+that was sorted. E.G: if user clicks to sort the `color` column, then `sortedKey = 'color'` in the sort event.
+
+While sorting happens fully outside of the library, meaning that the Table expects sorted data to be passed correctly to it,
+It does expect to know if a column is sorted so that it can update the UI accordingly. If you pass sorted data to the table,
+include the `sortedColumn` prop which comprises the following attributes:
+
+`dataKey: string mathching the column key,`
+
+`sortDirection: oneOf: 'none', 'ascending', 'descending'`
+
+<Sortable />
+
+## Sortable with Default Sorted Column
+
+Having a column be sorted by default is no different than sorting a column, we pass the `sortedColumn` object as a prop on initial
+render rather than only populating it upon user interaction.
+
+<SortableWithDefaultSortedColumn />
+
+## Sortable and Loading
+
+Setting the `isLoading` prop to true will disable clicking on the column headers. This prevents a race condition where an attempt to sort is made before data from the previous load is available.
+
+<SortableAndLoading />
+
+## Scrollable
+
+If you wish to lock your table into a particular `width` or `height` but render it fully (introducing scrolling) use the
+`scroll` prop. It is an object with the keys:
+
+`x: boolean,`
+
+`y: boolean`.
+
+Given this prop, the table will scroll horizontally, or verically basde on the width of its parent container.
+Note, the table will use the standard `auto` HTML algorithm for sizing columns based on their content, unless a column
+is given a specific width. In the example below we've made the table fit in a parent container that is 300x300 pixels
+with the second column having a fixed width of 300 pixels.
+
+<Scrollable />
+
+## Scrollable with Sticky Header
+
+Pass `hasStickyHeader` as a prop to stick the header to the top of the table, and prevent it from scrolling away.
+
+<ScrollableWithStickyHeader />
+
+## Scrollable with First Column Stuck to Left
+
+To stick the first column to the left of the table when it scrolls horizontally, add `sticky: 'left` to the column's config.
+
+<ScrollableFirstColumnLeft />
+
+## Scrollable with Sticky Header and Nth Column Stuck to Left
+
+Add `sticky: 'left` to any column to stick it to the left of the table when it scrolls horizontally.
+
+<ScrollableStickyHeaderNthColumnStuckLeft />
+
+## Scrollable with Last Column Stuck to Right
+
+To stick the last, or any, column to the right of the table when it scrolls horizontally, add `sticky: 'right'` to the column's config.
+
+<ScrollableLastColumnStuckRight />
+
+## Scrollable with Sticky Header and First Column Stuck to Left, Striped, and Hoverable
+
+To stick the header to the top, and the first column to the left, pass `hasStickyHeader` as a prop, and add `sticky: 'left'` to the column's config.
+
+<ScrollableStickyHeaderFirstColumnStuckLeft />
+
+## Scrollable and Loading
+
+All interactions, including clicking and scrolling will be disabled when a scrollable table is loading.
+
+<ScrollableAndLoading />
+
+## Fixed-Width Columns
+
+If you wish to lock the width of a particular column set the actual column `width` in your column object. Widths are set independently for each column.
+
+<FixedWidthColumns />
+
+## Fixed Table Layout
+
+The default layout algorithm for a HTML table is `auto`. Use the `useFixedTableLayout` prop to set the table's layout algorithm to `fixed`.
+
+<FixedTableLayout />
+
+## Truncate Overflow
+
+In cases where long text content is expected but displaying it fully isn't required, use the `truncateOverflow` prop on the table.
+This will truncate column content, but only if a fixed width is passed to that column. NOTE: the `truncateOverflow` exists
+in the `Column` object as well, making it possible to set it globally on the table or individually on a column. The column
+value will supersede the global setting.
+
+<TruncateOverflow />
+
+## Custom Actions
+
+The `Column` object is equiped with a `render` method. When used, the cells will render any custom JSX returned by this method. This can be used in a completely agnostic way. See `Any custom JSX` column below, where we render the same markup regardless of the cell/row content.
+
+The render method also exposes data about the cell and row, namely:
+
+`cell: the content in the cell,`
+
+`row: the entire row object,`
+
+`rowIndex: the index of the row in the table`
+
+With this data in the render function it is possible to render complex elements inside of a single cell.
+See `Based on cell/row` example below.
+
+<CustomActions />
+
+## Empty Cell Placeholder
+
+The empty cell placeholder can be set on a global level as a prop on `<Table />` or individually per column
+by adding the `emptyCellPlaceholder` to the column configuration object. In cases where both is set, the column
+placeholder takes precedence over the global placeholder. As seen in the example below where the price column uses
+`$0.00` as a placeholder where a price is missing.
+
+<EmptyCellPlaceholder />
+
+## Borderless
+
+Render a borderless table by passing `isBorderless` (boolean) prop to the table.
+
+<Borderless />
+
+## Compact
+
+Render a compact table by passing `isCompact` (boolean) prop to the table.
+
+<Compact />
+
+## Striped
+
+Render a striped table to slightly improve readibility by passing `isStriped` (boolean) prop to the table.
+
+<Striped />
+
+## Hoverable
+
+Make rows 'hoverable' by passing `hoverableRows` (boolean) prop to the table.
+
+<Hoverable />
+
+## Striped & Hoverable
+
+You can combine any of these boolean props based on your UI needs.
+
+<StripedAndHoverable />
+
+## Aligning Cell Text
+
+Align cell content as needed with the `align` prop. Either pass the prop at the `<Table />` level for all columns, or individually
+in a single `Column` object. NOTE: right alignment is best reserved for numerical data display.
+We recommend refraining from specific alignment unless it serves the data, as alignment discrepancies in different columns
+may interrupt the natural reading flow for a user.
+
+<AligningCellText />
+
+The below is an example of setting the `align` prop globally in the `<Table />` and overwriting its value on a specific column
+
+<GlobalAlign />
+
+## Component as Column Header
+
+You can use a ReactNode as your table header or cell.
+
+<ComponentAsHeaderOrCell />
+
+
+## Themed Table
+
+<ThemedTable />
+
+## Custom Column Classes
+
+Add custom classes to cells in a column by passing the `cellClassName` in the column config.
+
+<CustomCellClasses />
+
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
