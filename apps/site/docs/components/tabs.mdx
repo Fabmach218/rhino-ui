@@ -1,0 +1,66 @@
+import Default from './tabs/default';
+import WithPanels from './tabs/with-panels';
+import FullWidth from './tabs/full-width';
+import Centered from './tabs/centered';
+import Overflow from './tabs/overflow';
+import Sizes from './tabs/sizes';
+import AnchorElements from './tabs/anchor-elements';
+import DesignTokens from './tabs/design-tokens';
+
+# Tabs
+
+The Tabs component allows a user to flip amongst different views within the same page. This helps users navigate related content without having to change context.
+
+<Default />
+
+## Props
+
+
+## With Panels
+
+Use the TabPanels component to also control the visible content based on the selected tab.
+
+<WithPanels />
+
+## Full Width
+
+Use the `isFullWidth` prop to expand the tabs to the width of its parent, and size each tab evenly.
+
+<FullWidth />
+
+## Centered
+
+<Centered />
+
+## Overflow
+
+By default, tabs will overflow when the content is wider than the container. The selected `Tab.Item` will automatically be scrolled into view when the component is first rendered.
+
+<Overflow />
+
+## Sizes
+
+The `size` prop allows you to specify the size of the tab, or the size of the tabs at different breakpoints.
+
+<Sizes />
+
+## With Anchor elements
+
+Since each `Tab.Item` is render via a `Box` component you can pass the `as` attribute to render it as a different element than a button.
+The only other likely use case is to render each tab as an anchor. See example markup below.
+
+<AnchorElements />
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <DesignTokens />
+  </tbody>
+</table>
