@@ -1,0 +1,130 @@
+import { TextareaInput } from "@rhino-ui/components/src/components/textarea-input/textarea-input";
+import Default from './textarea-input/default';
+import Required from './textarea-input/required';
+import CustomRequiredIndicator from './textarea-input/custom-required-indicator';
+import HelpText from './textarea-input/help-text';
+import Resize from './textarea-input/resize';
+import Sizes from './textarea-input/sizes';
+import Placeholder from './textarea-input/placeholder';
+import Autofocus from './textarea-input/autofocus';
+import HiddenLabel from './textarea-input/hidden-label';
+import Disabled from './textarea-input/disabled';
+import DisabledWithValue from './textarea-input/disabled-with-value';
+import DisabledWithPlaceholder from './textarea-input/disabled-with-placeholder';
+import MaxLength from './textarea-input/max-length';
+import RequiredWithError from './textarea-input/required-with-error';
+import RequiredWithErrorAndValidationMessage from './textarea-input/required-with-error-and-validation-message';
+import NotRequiredWithErrorAndValidationMessage from './textarea-input/not-required-with-error-and-validation-message';
+import ErrorWithHiddenLabel from './textarea-input/error-with-hidden-label';
+
+# TextareaInput
+
+Use TextareaInput to render a multi-line text input.
+
+<TextareaInput id="demo" label="Multi Line Text Input" />
+
+## Props
+
+
+## Examples
+
+All that is required to render a basic version of the TextareaInput is a unique `id`, `label`, `value`, and an onchange event handler passed to the `onChange` prop.
+The input is vertically resizable by default.
+
+<Default />
+
+## Required
+
+Use the `isRequired` prop to set the `required` and `aria-required` on the underlying input element.
+
+<Required />
+
+You can remove or customize the required indicator using the `requiredIndicator` prop.
+
+<CustomRequiredIndicator />
+
+## Help Text
+
+Use the `helpText` prop to add clarifying text beneath the input label.
+
+<HelpText />
+
+## Resize
+
+The `resize` prop accepts `horizontal`, `vertical`, `both` or `none` to control the users ability to resize the input.
+
+<Resize />
+
+## Sizes
+
+Set the `size` of the input to `sm`, `md` or `lg`. The `size` prop is also a `ResponsiveProp`, so it can be sized differently at each [breakpoint](?path=/docs/design-tokens-design-tokens--page#breakpoints) by passing an object.
+
+<Sizes />
+
+## Placeholder
+
+Use the `placeholder` prop to add a custom placeholder.
+
+<Placeholder />
+
+## Autofocus
+
+Use the `autoFocus` prop to autofocus the input.
+
+<Autofocus />
+
+## Hidden Label
+
+Use the `hideLabel` prop to not render the label.
+
+<HiddenLabel />
+
+## Disabled
+
+Use the `isDisabled` prop to mark the input as disabled.
+
+<Disabled />
+
+## Disabled with Value
+
+Use the `isDisabled` prop to mark the input as disabled. Disabled inputs can have values that are either preset, or entered by users.
+
+<DisabledWithValue />
+
+## Disabled with Placeholder
+
+Use the `isDisabled` prop to mark the input as disabled. Disabled inputs can have placeholders.
+
+<DisabledWithPlaceholder />
+
+## Max Length
+
+Use the `maxLength` prop to limit the number of characters that can be entered into an input.
+
+<MaxLength />
+
+## Required with Error
+
+Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, `string`, or `node`. A `boolean` is passed in this example.
+
+<RequiredWithError />
+
+## Required with Error and Validation Message
+
+Pass a `string` or `node` to the `error` prop to render a validation message.
+
+<RequiredWithErrorAndValidationMessage />
+
+## Not Required with Error and Validation Message
+
+An input does not need to be marked as required to render a validation message.
+
+<NotRequiredWithErrorAndValidationMessage />
+
+## Error with Hidden Label
+
+<ErrorWithHiddenLabel />
+
+## Component Design Tokens
+
+This component shares component design tokens with all form controls. For a complete list of tokens, see the [Theming Form Controls documentation](/docs/theming-form-controls--custom-theme-form).
