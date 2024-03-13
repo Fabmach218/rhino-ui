@@ -1,9 +1,5 @@
 import { Alert } from '@rhino-ui/components/src/components/alert/alert';
-import Variants from './alert/variants';
-import CustomJsx from './alert/custom-jsx';
-import RenderFunction from './alert/render-function';
-import Closable from './alert/closable';
-import DesignTokens from './alert/design-tokens';
+import { Variants, CustomJsx, RenderFunction, Closable, CustomTheme, DesignTokens } from './stories/alert';
 
 # Alert
 
@@ -63,46 +59,7 @@ Renders a version of the banner with less padding.
 
 The Alert component can be themed by base tokens, or component specific tokens.
 
-<>
-    <div
-    style={{
-        '--color-brand-info-50': '#CFC5E9',
-        '--color-brand-info-500': '#603FB5',
-        '--alert-border-width': '0',
-    }}
-    >
-    <Alert
-        message="Here we've overwritten base token values so that the alert inherits new values."
-        title="Custom Theme"
-        variant="info"
-        hasIcon
-        className="m-bottom-md"
-    />
-    </div>
-    <div
-    style={{
-        '--alert-info-font-color': '#603FB5',
-        '--alert-info-background-color': 'white',
-        '--alert-info-icon-color': '#603FB5',
-        '--alert-border-width': 'var(--size-border-xs)',
-        '--alert-info-border-color': 'var(--alert-info-icon-color)',
-    }}
-    >
-    <Alert
-        message="Here we've overwritten ONLY the values for the 'info' alert variant so other components will be unaffected"
-        title="Custom Theme"
-        variant="info"
-        hasIcon
-        className="m-bottom-md"
-    />
-    <Alert
-        message="An alert that uses default token values"
-        variant="warning"
-        title="Not Themed"
-        hasIcon
-    />
-    </div>
-</>
+<CustomTheme />
 
 ## Component Design Tokens
 
