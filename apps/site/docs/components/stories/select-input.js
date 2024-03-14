@@ -1,3 +1,4 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Box } from '@rhino-ui/components/src/components/box/box';
 import { SelectInput } from '@rhino-ui/components/src/components/select-input/select-input';
 import { useState } from 'react';
@@ -311,14 +312,18 @@ export function Portal() {
       ];
       const [value, setValue] = useState(null);
       return (
-        <SelectInput
-          id="portal"
-          label="Flavors"
-          value={value}
-          onChange={event => setValue(event.target.value)}
-          options={options}
-          menuPortalTarget={document.body}
-        />
+        <BrowserOnly>
+          {() => 
+            <SelectInput
+              id="portal"
+              label="Flavors"
+              value={value}
+              onChange={event => setValue(event.target.value)}
+              options={options}
+              menuPortalTarget={document.body}
+            />
+          }
+        </BrowserOnly>
       );
 }
 

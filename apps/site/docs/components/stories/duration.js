@@ -1,3 +1,4 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useState, useEffect } from 'react';
 import { Badge } from '@rhino-ui/components/src/components/badge/badge';
 import { Box } from '@rhino-ui/components/src/components/box/box';
@@ -45,22 +46,26 @@ export function Hover() {
         console.log(isPopoverOpen);
       }, [isPopoverOpen]);
       return (
-        <Box display="inline-block">
-          <Popover
-            content={popoverContent}
-            isOpen={isPopoverOpen}
-            placement="right-start"
-            contentContainerProps={{
-              background: 'secondary',
-              color: 'white',
-            }}
-            withPortal
-            portalTarget={document.body}
-          >
-            <Box padding="sm">
-              <Badge display="" onMouseOver={() => setPopoverOpen(true)} onMouseOut={() => setPopoverOpen(false)} message={<Duration milliseconds={86500000} />} variant="default"/>
+        <BrowserOnly>
+          {() =>
+            <Box display="inline-block">
+              <Popover
+                content={popoverContent}
+                isOpen={isPopoverOpen}
+                placement="right-start"
+                contentContainerProps={{
+                  background: 'secondary',
+                  color: 'white',
+                }}
+                withPortal
+                portalTarget={document.body}
+              >
+                <Box padding="sm">
+                  <Badge display="" onMouseOver={() => setPopoverOpen(true)} onMouseOut={() => setPopoverOpen(false)} message={<Duration milliseconds={86500000} />} variant="default"/>
+                </Box>
+              </Popover>
             </Box>
-          </Popover>
-        </Box>
+          }
+        </BrowserOnly>
       );
 }

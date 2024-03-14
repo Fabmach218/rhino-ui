@@ -1,6 +1,29 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useState } from 'react';
 import { Box } from '@rhino-ui/components/src/components/box/box';
 import { DateInput } from '@rhino-ui/components/src/components/date-input/date-input';
+
+export function Example() {
+  const [selectedDate, setSelectedDate] = useState(null);
+  return (
+    <BrowserOnly>
+    {() =>
+      <DateInput
+        datePickerProps={{
+          selected: selectedDate,
+          onChange: setSelectedDate,
+        }}
+        textInputProps={{
+            id: 'exampleDateInput',
+            name: 'selectDate',
+            label: 'Select a Date',
+            placeholder: 'e.g. 11/02/2020',
+        }}
+      />
+    }
+    </BrowserOnly>
+  )
+}
 
 export function Default() {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -8,19 +31,23 @@ export function Default() {
         setSelectedDate(null);
       };
       return (
-        <DateInput
-          datePickerProps={{
-            selected: selectedDate,
-            onChange: setSelectedDate,
-          }}
-          textInputProps={{
-            placeholder: 'e.g. 11/02/2020',
-            onClear: handleClear,
-            id: 'defaultDatePicker',
-            name: 'selectDate',
-            label: 'Select Date',
-          }}
-        />
+        <BrowserOnly>
+          {() =>
+            <DateInput
+              datePickerProps={{
+                selected: selectedDate,
+                onChange: setSelectedDate,
+              }}
+              textInputProps={{
+                placeholder: 'e.g. 11/02/2020',
+                onClear: handleClear,
+                id: 'defaultDatePicker',
+                name: 'selectDate',
+                label: 'Select Date',
+              }}
+            />
+          }
+        </BrowserOnly>
       );
 }
 
@@ -36,21 +63,25 @@ export function DateRange() {
         setEndDate(null);
     };
     return (
+      <BrowserOnly>
+      {() =>
         <DateInput
-            datePickerProps={{
+          datePickerProps={{
             onChange: setDate,
             selected: startDate,
             selectsRange: true,
             startDate,
             endDate,
-            }}
-            textInputProps={{
+          }}
+          textInputProps={{
             onClear: handleClear,
             id: 'myDateRangePicker',
             name: 'myDateRangePicker',
             label: 'Select Date Range',
-            }}
+          }}
         />
+      }
+      </BrowserOnly>
     );
 }
 
@@ -64,21 +95,25 @@ export function MinMaxDates() {
       const max = new Date(2022, 6, 18);
       max.setDate(max.getDate() + 100);
       return (
-        <DateInput
-          datePickerProps={{
-            selected: selectedDate,
-            maxDate: max,
-            minDate: min,
-            onChange: setSelectedDate,
-          }}
-          textInputProps={{
-            placeholder: 'e.g. 11/02/2020',
-            onClear: handleClear,
-            id: 'defaultDatePicker',
-            name: 'selectDate',
-            label: 'Select Date',
-          }}
-        />
+        <BrowserOnly>
+          {() =>
+            <DateInput
+              datePickerProps={{
+                selected: selectedDate,
+                maxDate: max,
+                minDate: min,
+                onChange: setSelectedDate,
+              }}
+              textInputProps={{
+                placeholder: 'e.g. 11/02/2020',
+                onClear: handleClear,
+                id: 'defaultDatePicker',
+                name: 'selectDate',
+                label: 'Select Date',
+              }}
+            />
+          }
+        </BrowserOnly>
       );
 }
 
@@ -89,24 +124,28 @@ export function CustomDateFormat() {
         setSelectedDate(null);
       };
       return (
-        <Box gap="md">
-          <DateInput
-            dateFormat={'MMMM dd, yyyy'}
-            datePickerProps={{
-              selected: selectedDate,
-              onChange: setSelectedDate,
-            }}
-            textInputProps={{
-              onClear: handleClear,
-              id: 'withCustomDateFormat',
-              name: 'selectDate',
-              label: 'Select Date',
-            }}
-          />
-          <Box>
-            <p>Selected Date (as ISO String): {selectedDate ? selectedDate.toISOString() : null}</p>
+        <BrowserOnly>
+        {() => 
+          <Box gap="md">
+            <DateInput
+              dateFormat={'MMMM dd, yyyy'}
+              datePickerProps={{
+                selected: selectedDate,
+                onChange: setSelectedDate,
+              }}
+              textInputProps={{
+                onClear: handleClear,
+                id: 'withCustomDateFormat',
+                name: 'selectDate',
+                label: 'Select Date',
+              }}
+            />
+            <Box>
+              <p>Selected Date (as ISO String): {selectedDate ? selectedDate.toISOString() : null}</p>
+            </Box>
           </Box>
-        </Box>
+        }
+        </BrowserOnly>
       );
 }
 
@@ -117,20 +156,24 @@ export function InputBlurEvent() {
         alert('TextInput Blur Event');
       };
       return (
-        <Box gap="md">
-          <DateInput
-            dateFormat={'MMMM dd, yyyy'}
-            datePickerProps={{
-              selected: selectedDate,
-              onChange: setSelectedDate,
-            }}
-            textInputProps={{
-              id: 'withCustomDateFormat',
-              name: 'selectDate',
-              label: 'Select Date',
-              onBlur: handleTextInputBlur,
-            }}
-          />
-        </Box>
+        <BrowserOnly>
+        {() =>
+          <Box gap="md">
+            <DateInput
+              dateFormat={'MMMM dd, yyyy'}
+              datePickerProps={{
+                selected: selectedDate,
+                onChange: setSelectedDate,
+              }}
+              textInputProps={{
+                id: 'withCustomDateFormat',
+                name: 'selectDate',
+                label: 'Select Date',
+                onBlur: handleTextInputBlur,
+              }}
+            />
+          </Box>
+        }
+        </BrowserOnly>
       );
 }

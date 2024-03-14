@@ -52,11 +52,7 @@ const config: Config = {
         },
         theme: {
           customCss: [
-            './src/css/custom.css',
-            '../../packages/components/src/components/box/box.module.scss',
-            '../../packages/components/src/components/details/details.module.scss',
-            '../../packages/components/src/components/heading/heading.module.scss',
-            '../../packages/components/src/components/button/button.module.scss',            
+            './src/css/custom.css',         
           ],
         },
       } satisfies Preset.Options,

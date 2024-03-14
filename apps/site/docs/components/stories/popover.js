@@ -1,3 +1,4 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useState } from 'react';
 import { useOpenClose } from "@rhino-ui/components/src/hooks/use-open-close/use-open-close";
 import { Box } from '@rhino-ui/components/src/components/box/box';
@@ -240,25 +241,29 @@ export function WithAPortal() {
         </>
       );
       return (
-        <Box display="inline-block">
-          <Popover
-            content={popoverContent}
-            isOpen={isPopoverOpen}
-            placement="right-start"
-            contentContainerProps={{
-              padding: 'md',
-              background: 'secondary',
-              color: 'white',
-            }}
-            withPortal
-            portalTarget={document.body}
-            onClickOutside={closePopover}
-          >
-            <Button onClick={togglePopover} variant="light">
-              Toggle Popover
-            </Button>
-          </Popover>
-        </Box>
+        <BrowserOnly>
+          {() =>
+            <Box display="inline-block">
+              <Popover
+                content={popoverContent}
+                isOpen={isPopoverOpen}
+                placement="right-start"
+                contentContainerProps={{
+                  padding: 'md',
+                  background: 'secondary',
+                  color: 'white',
+                }}
+                withPortal
+                portalTarget={document.body}
+                onClickOutside={closePopover}
+              >
+                <Button onClick={togglePopover} variant="light">
+                  Toggle Popover
+                </Button>
+              </Popover>
+            </Box>
+          }
+        </BrowserOnly>
       );
 }
 
@@ -317,24 +322,28 @@ export function OutsideClicks() {
         </>
       );
       return (
-        <Box display="inline-block">
-          <Popover
-            content={popoverContent}
-            isOpen={isPopoverOpen}
-            placement="right-start"
-            withPortal
-            portalTarget={document.body}
-            onClickOutside={closePopover}
-            contentContainerProps={{
-              padding: 'md',
-              background: 'primary-light',
-            }}
-          >
-            <Button onClick={togglePopover} variant="light">
-              Toggle Popover
-            </Button>
-          </Popover>
-        </Box>
+        <BrowserOnly>
+          {() =>
+            <Box display="inline-block">
+              <Popover
+                content={popoverContent}
+                isOpen={isPopoverOpen}
+                placement="right-start"
+                withPortal
+                portalTarget={document.body}
+                onClickOutside={closePopover}
+                contentContainerProps={{
+                  padding: 'md',
+                  background: 'primary-light',
+                }}
+              >
+                <Button onClick={togglePopover} variant="light">
+                  Toggle Popover
+                </Button>
+              </Popover>
+            </Box>
+          }
+        </BrowserOnly>
       );
 }
 
@@ -360,25 +369,29 @@ export function TrappingFocus() {
         </>
       );
       return (
-        <Box display="inline-block">
-          <Popover
-            content={popoverContent}
-            isOpen={isPopoverOpen}
-            placement="right-start"
-            contentContainerProps={{
-              padding: 'md',
-              background: 'grey-lightest',
-            }}
-            withPortal
-            portalTarget={document.body}
-            onClickOutside={closePopover}
-            trapFocus
-          >
-            <Button onClick={togglePopover} variant="light">
-              Toggle Popover
-            </Button>
-          </Popover>
-        </Box>
+        <BrowserOnly>
+          {() =>
+            <Box display="inline-block">
+              <Popover
+                content={popoverContent}
+                isOpen={isPopoverOpen}
+                placement="right-start"
+                contentContainerProps={{
+                  padding: 'md',
+                  background: 'grey-lightest',
+                }}
+                withPortal
+                portalTarget={document.body}
+                onClickOutside={closePopover}
+                trapFocus
+              >
+                <Button onClick={togglePopover} variant="light">
+                  Toggle Popover
+                </Button>
+              </Popover>
+            </Box>
+          }
+        </BrowserOnly>
       );
 }
 
@@ -427,48 +440,52 @@ export function OffsetDistance() {
         </>
       );
       return (
-        <>
-          <Box display="inline-block">
-            <Popover
-              content={popoverContent}
-              isOpen={isPopoverOpen}
-              placement="right-start"
-              contentContainerProps={{
-                padding: 'md',
-                background: 'grey-lightest',
-              }}
-              withPortal
-              portalTarget={document.body}
-              hasArrow={false}
-              offsetFromTarget={offset}
-            >
-              <Button onClick={togglePopover} variant="light">
-                Toggle Popover
-              </Button>
-            </Popover>
-          </Box>
-          <Box margin="2xl 0 0 0" maxWidth="300px">
-            <label
-              htmlFor="offset"
-              style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}
-            >
-              Offset
-            </label>
-            <input
-              type="range"
-              id="offset"
-              name="offset"
-              min="0"
-              max="24"
-              step="1"
-              value={offset}
-              onChange={event => {
-                setOffset(event.target.value);
-              }}
-              style={{ marginBottom: '0.25rem' }}
-            />
-            <span style={{ display: 'inline' }}>Value: {offset}</span>
-          </Box>
-        </>
+        <BrowserOnly>
+          {() => 
+            <>
+              <Box display="inline-block">
+                <Popover
+                  content={popoverContent}
+                  isOpen={isPopoverOpen}
+                  placement="right-start"
+                  contentContainerProps={{
+                    padding: 'md',
+                    background: 'grey-lightest',
+                  }}
+                  withPortal
+                  portalTarget={document.body}
+                  hasArrow={false}
+                  offsetFromTarget={offset}
+                >
+                  <Button onClick={togglePopover} variant="light">
+                    Toggle Popover
+                  </Button>
+                </Popover>
+              </Box>
+              <Box margin="2xl 0 0 0" maxWidth="300px">
+                <label
+                  htmlFor="offset"
+                  style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}
+                >
+                  Offset
+                </label>
+                <input
+                  type="range"
+                  id="offset"
+                  name="offset"
+                  min="0"
+                  max="24"
+                  step="1"
+                  value={offset}
+                  onChange={event => {
+                    setOffset(event.target.value);
+                  }}
+                  style={{ marginBottom: '0.25rem' }}
+                />
+                <span style={{ display: 'inline' }}>Value: {offset}</span>
+              </Box>
+            </>
+          }
+        </BrowserOnly>
       );
 }

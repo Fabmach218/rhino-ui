@@ -1,3 +1,4 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Alert } from '@rhino-ui/components/src/components/alert/alert';
 import { Box } from "@rhino-ui/components/src/components/box/box";
@@ -127,18 +128,22 @@ export function Icons() {
 
 export function ReactRouterLink() {
     return (
-        <BrowserRouter>
-            <Link to="/" as="a" component={Button}>
-                React Router Link
-            </Link>
-            <Box margin="md 0 0 0">
-                <Alert
-                    hasIcon
-                    message="NOTE: this link will not work in storybook but the code example is correct if used in a React application with react-router-dom."
-                    variant="warning"
-                />
-            </Box>
-        </BrowserRouter>
+        <BrowserOnly>
+        {() =>
+            <BrowserRouter>
+                <Link to="/" as="a" component={Button}>
+                    React Router Link
+                </Link>
+                <Box margin="md 0 0 0">
+                    <Alert
+                        hasIcon
+                        message="NOTE: this link will not work in storybook but the code example is correct if used in a React application with react-router-dom."
+                        variant="warning"
+                    />
+                </Box>
+            </BrowserRouter>
+        }
+        </BrowserOnly>
     )
 }
 

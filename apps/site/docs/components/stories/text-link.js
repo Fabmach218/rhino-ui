@@ -1,13 +1,18 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { TextLink } from "@rhino-ui/components/src/components/text-link/text-link";
 import { BrowserRouter, Link } from "react-router-dom";
 
 export function ReactRouter() {
     return (
-        <BrowserRouter>
-            <Link to="/" component={TextLink}>
-              Click me!
-            </Link>
-        </BrowserRouter>
+        <BrowserOnly>
+          {() => 
+            <BrowserRouter>
+              <Link to="/" component={TextLink}>
+                Click me!
+              </Link>
+          </BrowserRouter>
+          }
+        </BrowserOnly>
       );
 }
 
@@ -21,11 +26,15 @@ export function AdditionalAttributes() {
 
 export function LinkProps() {
     return (
-        <BrowserRouter>
-            <Link to="/" replace component={TextLink}>
-              I will replace the current history entry
-            </Link>
-        </BrowserRouter>
+        <BrowserOnly>
+          {() =>
+            <BrowserRouter>
+                <Link to="/" replace component={TextLink}>
+                  I will replace the current history entry
+                </Link>
+            </BrowserRouter>
+          }
+        </BrowserOnly>
       );
 }
 
